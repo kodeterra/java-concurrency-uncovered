@@ -1,12 +1,2 @@
-public class PaymentRequest {
-    private final int paymentId;
-
-    public PaymentRequest(int paymentId)
-    {
-        this.paymentId = paymentId;
-    }
-
-    public int getPaymentId() {
-        return paymentId;
-    }
+public record PaymentRequest(String paymentId, double amount) {
 }
