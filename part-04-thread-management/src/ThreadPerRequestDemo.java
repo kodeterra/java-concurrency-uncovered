@@ -6,9 +6,9 @@ public class ThreadPerRequestDemo {
         List<Thread> workers = new ArrayList<>();
         for(int i=0;i<=10_000;i++)
         {
-            PaymentRequest request = new PaymentRequest(i);
+            PaymentRequest request = new PaymentRequest("payment-worker-"+i,1000);
             Thread worker = new Thread(
-                    ()->processPayment(request), "payment-worker - "+request.getPaymentId());
+                    ()->processPayment(request), "payment-worker - "+request.paymentId());
             worker.start();
             workers.add(worker);
         }
@@ -18,7 +18,7 @@ public class ThreadPerRequestDemo {
     }
     private static void processPayment(PaymentRequest request) {
         System.out.println(
-                "Processing payment " + request.getPaymentId()
+                "Processing payment " + request.paymentId()
                         + " on " + Thread.currentThread().getName()
         );
 
