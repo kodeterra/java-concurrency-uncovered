@@ -12,6 +12,6 @@ public class HandleDemo {
             return result.toUpperCase();
         });
 
-        System.out.println(payment.join());;
+        System.out.println(payment.join());
     }
 }
